@@ -3,7 +3,10 @@
 <% @memos.each do |memo| %>
     <div class="col-sm-4">
         <div class="panel panel-warning">
-            <div class="panel-heading"><%= memo.title %></div>
+            <div class="panel-heading">
+            <%= memo.title %>
+            <a href="/memos/<%= memo.id %>" data-method="delete">削除</a>
+            </div>
             <div class="panel-body">
                 <%= memo.body %>
             </div>
