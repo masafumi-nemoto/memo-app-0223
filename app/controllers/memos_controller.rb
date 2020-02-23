@@ -1,7 +1,6 @@
 class MemosController < ApplicationController
     def index
         @memos = Memo.all
-        @categoryies = Category.all
     end
 
     def new
