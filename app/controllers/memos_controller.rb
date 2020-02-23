@@ -1,14 +1,15 @@
 class MemosController < ApplicationController
     def index
         @memos = Memo.all
+        @categoryies = Category.all
     end
 
     def new
-        
+        @categoryies = Category.all
     end
 
     def create
-        Memo.create(title: params["memos"]["title"],body: params["memos"]["body"])
+        Memo.create(title: params["memos"]["title"],body: params["memos"]["body"],category_id: params["memos"]["category_id"])
         redirect_to "/"
     end
 
@@ -26,6 +27,7 @@ class MemosController < ApplicationController
         memo = Memo.find(params["id"])
         memo.title = params["memos"]["title"]
         memo.body = params["memos"]["body"]
+        memo.category_id = params["memos"]["category_id"]
         memo.save
         redirect_to "/"
     end
